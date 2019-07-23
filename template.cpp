@@ -2,14 +2,17 @@
 using namespace std;
 #define sz(x) ((int) (x).size())
 #define pb push_back
-#define rep(i, f, t) for (int i = f; i < t; ++i)
+#define all(x) (x).begin(), (x).end()
+#define mp make_pair
+#define fr first
+#define sc second
 template <class c> auto try_out(c x) -> decltype(cerr << x, 0);
 char try_out(...);
 template <class c> struct range { c b, e; };
 template <class c> range<c> mrange(c i, c j) { return range<c>{i, j}; }
 struct err {
     template <class c, class d> err& operator << (pair<c,d> x) {
-        return *this << "(" << x.first << ", " << x.second << ")";
+        return *this << "(" << x.fr << ", " << x.sc << ")";
     }
     template <class c> typename enable_if<sizeof(try_out(declval<c>())) != 1, err&>::type operator << (c x) {
         cerr << boolalpha << x;
@@ -25,7 +28,13 @@ struct err {
         return *this << "}";
     }
 };
-#define aty(...)  "[ " << #__VA_ARGS__ << " : " << __VA_ARGS__ << " ]"
+#define name(...)  "[ " << #__VA_ARGS__ << " : " << __VA_ARGS__ << " ]"
+#ifdef LOCAL
+    #define debug(x) err() << name(x) << "\n"
+#else
+    #define debug(x) 42
+#endif
+
 
 
 
